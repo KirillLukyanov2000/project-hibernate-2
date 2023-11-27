@@ -1,4 +1,4 @@
-package org.example;
+package ru.javarush;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

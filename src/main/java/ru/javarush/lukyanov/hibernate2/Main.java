@@ -1,10 +1,7 @@
-package org.example;
+package ru.javarush.lukyanov.hibernate2;
 
-/**
- * Hello world!
- *
- */
-public class App 
+
+public class Main
 {
     public static void main( String[] args )
     {
