@@ -40,6 +40,9 @@ public class Film {
     @Enumerated(EnumType.ORDINAL)
     @ElementCollection
     private Set<SpecialFeatures> specialFeatures;
+    @OneToOne
+    @JoinColumn(name = "film_id",referencedColumnName = "filmId")
+    private FilmText filmText;
     @Column(name = "last_update")
     @UpdateTimestamp
     private LocalDateTime lastUpdate;

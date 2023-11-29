@@ -89,3 +89,9 @@ G.idea/sonarlint/issuestore/f/6/f6ffa7796827227ee8187e7558fc42eeef5439c7,8\4\84
 Q.idea/sonarlint/securityhotspotstore/0/6/06d94160a621401828848e4a7c0887cb3f9c94e1,c\4\c4caf9d4856f90b79d214c5089507442cee35c15
 Å
 Q.idea/sonarlint/securityhotspotstore/f/6/f6ffa7796827227ee8187e7558fc42eeef5439c7,1\6\16e5c46c462fcf4d8e583f119971f4ca6b69cae1
+z
+Jsrc/main/java/ru/javarush/lukyanov/hibernate2/repository/DBRepository.java,b\6\b6ec0ce67ad51115350b718249697e26469448fc
+t
+Dsrc/main/java/ru/javarush/lukyanov/hibernate2/service/DBService.java,2\d\2d6d40b4ae80e9768ae747a588d0523170129881
+z
+Jsrc/main/java/ru/javarush/lukyanov/hibernate2/service/CustomerService.java,c\4\c430587fe5308ef4074594d032dc04a543aa4031
