@@ -1,9 +1,6 @@
 package ru.javarush.lukyanov.hibernate2.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
@@ -20,8 +17,18 @@ public class City {
     @Column(name = "last_update")
     @UpdateTimestamp
     private LocalDateTime lastUpdate;
-
+    @ManyToOne
+    @JoinColumn(name = "country_id")
+    private Country country;
     public City() {
+    }
+
+    public Country getCountry() {
+        return country;
+    }
+
+    public void setCountry(Country country) {
+        this.country = country;
     }
 
     public Short getCityId() {

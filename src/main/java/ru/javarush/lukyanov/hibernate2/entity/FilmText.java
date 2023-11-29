@@ -12,6 +12,17 @@ public class FilmText {
     private String title;
     @Column(name = "description")
     private String description;
+    @Column
+    @OneToOne(mappedBy = "filmId")
+    private Film film;
+
+    public Film getFilm() {
+        return film;
+    }
+
+    public void setFilm(Film film) {
+        this.film = film;
+    }
 
     public FilmText() {
     }

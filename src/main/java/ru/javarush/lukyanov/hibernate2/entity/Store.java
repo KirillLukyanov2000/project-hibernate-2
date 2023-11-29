@@ -1,12 +1,11 @@
 package ru.javarush.lukyanov.hibernate2.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.Set;
+
 @Entity
 @Table(name = "store")
 public class Store {
@@ -20,8 +19,32 @@ public class Store {
     @Column(name = "last_update")
     @UpdateTimestamp
     private LocalDateTime lastUpdate;
+    @ManyToOne
+    @JoinColumn(name = "address_id")
+    private Address address;
+    @Column(name = "staffs")
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "store_staff", joinColumns = @JoinColumn(name = "store_id", referencedColumnName = "storeId"),
+            inverseJoinColumns = @JoinColumn(name = "staff_id", referencedColumnName = "staffId"))
+    private Set<Staff> staffs;
 
     public Store() {
+    }
+
+    public Set<Staff> getStaff() {
+        return staffs;
+    }
+
+    public void setStaff(Set<Staff> staffs) {
+        this.staffs = staffs;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     public Byte getStoreId() {

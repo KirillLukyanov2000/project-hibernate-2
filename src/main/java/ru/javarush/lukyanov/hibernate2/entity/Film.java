@@ -40,14 +40,59 @@ public class Film {
     @Enumerated(EnumType.ORDINAL)
     @ElementCollection
     private Set<SpecialFeatures> specialFeatures;
-    @OneToOne
-    @JoinColumn(name = "film_id",referencedColumnName = "filmId")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "film_id", referencedColumnName = "filmId")
     private FilmText filmText;
     @Column(name = "last_update")
     @UpdateTimestamp
     private LocalDateTime lastUpdate;
+    @Column(name = "categories")
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "film_category", joinColumns = @JoinColumn(name = "film_id", referencedColumnName = "filmId"),
+            inverseJoinColumns = @JoinColumn(name = "category_id", referencedColumnName = "categoryId"))
+    private Set<Category> categories;
+    @Column(name = "actors")
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "film_actor", joinColumns = @JoinColumn(name = "film_id", referencedColumnName = "filmId"),
+            inverseJoinColumns = @JoinColumn(name = "actor_id", referencedColumnName = "actorId"))
+    private Set<Actor> actors;
+    @ManyToOne
+    @JoinColumn(name = "language_id")
+    private Language language;
 
     public Film() {
+    }
+
+    public Set<Actor> getActors() {
+        return actors;
+    }
+
+    public void setActors(Set<Actor> actors) {
+        this.actors = actors;
+    }
+
+    public Language getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(Language language) {
+        this.language = language;
+    }
+
+    public Set<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(Set<Category> categories) {
+        this.categories = categories;
+    }
+
+    public FilmText getFilmText() {
+        return filmText;
+    }
+
+    public void setFilmText(FilmText filmText) {
+        this.filmText = filmText;
     }
 
     public Short getFilmId() {

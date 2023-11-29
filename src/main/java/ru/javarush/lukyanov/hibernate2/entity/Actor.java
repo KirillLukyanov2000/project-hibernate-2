@@ -1,13 +1,11 @@
 package ru.javarush.lukyanov.hibernate2.entity;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Entity
 @Table(name = "actor")
@@ -22,8 +20,20 @@ public class Actor {
     @Column(name = "last_update")
     @UpdateTimestamp
     private LocalDateTime lastUpdate;
-
+    @Column(name = "films")
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "film_actor", joinColumns = @JoinColumn(name = "actor_id", referencedColumnName = "actorId"),
+            inverseJoinColumns = @JoinColumn(name = "film_id", referencedColumnName = "filmId"))
+    private Set<Film> films;
     public Actor() {
+    }
+
+    public Set<Film> getFilms() {
+        return films;
+    }
+
+    public void setFilms(Set<Film> films) {
+        this.films = films;
     }
 
     public Short getActorId() {

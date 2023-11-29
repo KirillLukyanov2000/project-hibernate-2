@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Entity
 @Table(name = "staff")
@@ -33,8 +34,21 @@ public class Staff {
     @Column(name = "last_update")
     @UpdateTimestamp
     private LocalDateTime lastUpdate;
+    @Column(name = "stores")
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "store_staff", joinColumns = @JoinColumn(name = "staff_id", referencedColumnName = "staffId"),
+            inverseJoinColumns = @JoinColumn(name = "store_id", referencedColumnName = "storeId"))
+    private Set<Store> stores;
 
     public Staff() {
+    }
+
+    public Set<Store> getStores() {
+        return stores;
+    }
+
+    public void setStores(Set<Store> stores) {
+        this.stores = stores;
     }
 
     public Byte getStaffId() {
