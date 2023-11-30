@@ -95,3 +95,5 @@ t
 Dsrc/main/java/ru/javarush/lukyanov/hibernate2/service/DBService.java,2\d\2d6d40b4ae80e9768ae747a588d0523170129881
 z
 Jsrc/main/java/ru/javarush/lukyanov/hibernate2/service/CustomerService.java,c\4\c430587fe5308ef4074594d032dc04a543aa4031
+Z
+*src/test/java/ru/javarush/RunnerTests.java,c\3\c3cab922654007aa23c137085eda52f888f14c1f
