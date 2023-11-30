@@ -39,6 +39,20 @@ public class Customer {
     public Customer() {
     }
 
+    public Customer(Short customerId, Byte storeId, String firstName, String lastName, String email, Short addressId, Byte active, LocalDate createDate, LocalDateTime lastUpdate, Store store, Address address) {
+        this.customerId = customerId;
+        this.storeId = storeId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.addressId = addressId;
+        this.active = active;
+        this.createDate = createDate;
+        this.lastUpdate = lastUpdate;
+        this.store = store;
+        this.address = address;
+    }
+
     public Address getAddress() {
         return address;
     }

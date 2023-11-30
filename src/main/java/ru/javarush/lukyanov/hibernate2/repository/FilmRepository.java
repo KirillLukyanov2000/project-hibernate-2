@@ -5,14 +5,16 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
 import ru.javarush.lukyanov.hibernate2.entity.*;
 
+import java.util.List;
+import java.util.Optional;
 import java.util.Properties;
 
-public class DBRepository {
+public class FilmRepository implements Repository<Film> {
 
-    private static DBRepository instance;
+    private static FilmRepository instance;
     private final SessionFactory sessionFactory;
 
-    private DBRepository() {
+    private FilmRepository() {
         Properties properties = new Properties();
         properties.put(Environment.DIALECT, "org.hibernate.dialect.MySQL8Dialect");
         properties.put(Environment.DRIVER, "com.p6spy.engine.spy.P6SpyDriver");
@@ -40,10 +42,40 @@ public class DBRepository {
                 .addAnnotatedClass(Store.class)
                 .buildSessionFactory();
     }
-    public static SessionFactory getSessionFactory() {
-        if ( instance == null) {
-            instance = new DBRepository();
+
+    public static FilmRepository getFilmRepository() {
+        if (instance == null) {
+            instance = new FilmRepository();
         }
-        return instance.sessionFactory;
+        return instance;
+    }
+    @Override
+    public List<Film> getAll(int pageNumber, int pageSize) {
+        return null;
+    }
+
+    @Override
+    public Long getAllCount() {
+        return null;
+    }
+
+    @Override
+    public Film save(Film entity) {
+        return null;
+    }
+
+    @Override
+    public Film update(Film entity) {
+        return null;
+    }
+
+    @Override
+    public Optional<Film> get(long id) {
+        return Optional.empty();
+    }
+
+    @Override
+    public void delete(Film entity) {
+
     }
 }
