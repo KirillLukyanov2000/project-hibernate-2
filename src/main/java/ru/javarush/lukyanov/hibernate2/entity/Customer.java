@@ -32,8 +32,8 @@ public class Customer {
     @ManyToOne
     @JoinColumn(name = "store_id")
     private Store store;
-    @ManyToOne
-    @JoinColumn(name = "address_id")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "address_id", referencedColumnName = "addressId")
     private Address address;
 
     public Customer() {

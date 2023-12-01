@@ -1,30 +1,35 @@
 package ru.javarush.lukyanov.hibernate2.entity;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.Type;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
 import java.sql.Date;
 import java.time.LocalDateTime;
+import java.time.Year;
 import java.util.Set;
 
 @Entity
-@Table(name = "film")
+@Table(schema = "movie", name = "film")
 public class Film {
     @Id
     @Column(name = "film_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Short filmId;
     @Column(name = "title")
     private String title;
-    @Column(name = "description")
+    @Column(name = "description", columnDefinition = "text")
+    @Type(type = "text")
     private String description;
     @Column(name = "release_year")
-    @Basic
-    private java.sql.Date releaseYear;
-    @Column(name = "language_id")
-    private Byte languageId;
-    @Column(name = "original_language_id")
-    private Byte originalLanguageId;
+    private Year releaseYear;
+    @ManyToOne
+    @JoinColumn(name = "language_id")
+    private Language language;
+    @ManyToOne
+    @JoinColumn(name = "original_language_id")
+    private Language originalLanguage;
     @Column(name = "rental_duration")
     private Byte rentalDuration;
     @Column(name = "rental_rate")
@@ -33,13 +38,11 @@ public class Film {
     private Short length;
     @Column(name = "replacement_cost")
     private java.math.BigDecimal replacementCost;
-    @Column(name = "rating")
+    @Column(name = "rating", columnDefinition = "enum('G', 'PG', 'PG-13', 'R', 'NC-17')")
     @Enumerated(EnumType.ORDINAL)
     private Rating rating;
-    @Column(name = "special_features")
-    @Enumerated(EnumType.ORDINAL)
-    @ElementCollection
-    private Set<SpecialFeatures> specialFeatures;
+    @Column(name = "special_features", columnDefinition = "set('Trailers', 'Commentaries', 'Deleted Scenes', 'Behind the Scenes')")
+    private String specialFeatures;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "film_id", referencedColumnName = "filmId")
     private FilmText filmText;
@@ -56,9 +59,7 @@ public class Film {
     @JoinTable(name = "film_actor", joinColumns = @JoinColumn(name = "film_id", referencedColumnName = "filmId"),
             inverseJoinColumns = @JoinColumn(name = "actor_id", referencedColumnName = "actorId"))
     private Set<Actor> actors;
-    @ManyToOne
-    @JoinColumn(name = "language_id")
-    private Language language;
+
 
     public Film() {
     }
@@ -183,11 +184,11 @@ public class Film {
         this.rating = rating;
     }
 
-    public Set<SpecialFeatures> getSpecialFeatures() {
+    public Set<SpecialFeature> getSpecialFeatures() {
         return specialFeatures;
     }
 
-    public void setSpecialFeatures(Set<SpecialFeatures> specialFeatures) {
+    public void setSpecialFeatures(Set<SpecialFeature> specialFeatures) {
         this.specialFeatures = specialFeatures;
     }
 

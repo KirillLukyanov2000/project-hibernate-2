@@ -29,8 +29,18 @@ public class Address {
     @ManyToOne
     @JoinColumn(name = "city_id")
     private City city;
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "storeId")
+    private Store store;
 
     public Address() {
+    }
+
+    public Store getStore() {
+        return store;
+    }
+
+    public void setStore(Store store) {
+        this.store = store;
     }
 
     public City getCity() {

@@ -29,8 +29,8 @@ public class Payment {
     @ManyToOne
     @JoinColumn(name = "customer_id")
     private Customer customer;
-    @ManyToOne
-    @JoinColumn(name = "rental_id")
+    @OneToOne
+    @JoinColumn(name = "address_id", referencedColumnName = "addressId")
     private Rental rental;
     @ManyToOne
     @JoinColumn(name = "staff_id")

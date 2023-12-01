@@ -34,21 +34,30 @@ public class Staff {
     @Column(name = "last_update")
     @UpdateTimestamp
     private LocalDateTime lastUpdate;
-    @Column(name = "stores")
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "store_staff", joinColumns = @JoinColumn(name = "staff_id", referencedColumnName = "staffId"),
-            inverseJoinColumns = @JoinColumn(name = "store_id", referencedColumnName = "storeId"))
-    private Set<Store> stores;
+    @ManyToOne
+    @JoinColumn(name = "address_id")
+    private Address address;
+    @ManyToOne
+    @JoinColumn(name = "store_id")
+    private Store store;
 
     public Staff() {
     }
 
-    public Set<Store> getStores() {
-        return stores;
+    public Address getAddress() {
+        return address;
     }
 
-    public void setStores(Set<Store> stores) {
-        this.stores = stores;
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public Store getStore() {
+        return store;
+    }
+
+    public void setStore(Store store) {
+        this.store = store;
     }
 
     public Byte getStaffId() {

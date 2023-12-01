@@ -24,7 +24,7 @@ public class CustomerRepository implements Repository<Customer> {
         properties.put(Environment.URL, "jdbc:p6spy:mysql://localhost:3306/movie");
         properties.put(Environment.USER, "root");
         properties.put(Environment.PASS, "root");
-        properties.put(Environment.HBM2DDL_AUTO, "update");
+        properties.put(Environment.HBM2DDL_AUTO, "validate");
         sessionFactory = new Configuration()
                 .setProperties(properties)
                 .addAnnotatedClass(Actor.class)

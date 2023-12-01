@@ -1,19 +1,17 @@
 package ru.javarush.lukyanov.hibernate2.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDate;
 @Entity
-@Table(name = "language")
+@Table(schema = "movie", name = "language")
 public class Language {
     @Id
     @Column(name = "language_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Byte languageId;
-    @Column(name = "name")
+    @Column(name = "name", columnDefinition = "char")
     private String name;
     @Column(name = "last_update")
     @UpdateTimestamp

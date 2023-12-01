@@ -11,5 +11,5 @@ j
 java:S3252"HUse static access with "org.hibernate.cfg.AvailableSettings" for "USER".(Ì¦ˆ÷øÿÿÿÿ8˜¥ÕþÁ1
 j
 java:S3252"HUse static access with "org.hibernate.cfg.AvailableSettings" for "PASS".(Óß ´þÿÿÿÿ8˜¥ÕþÁ1
-r
-java:S3252"PUse static access with "org.hibernate.cfg.AvailableSettings" for "HBM2DDL_AUTO".(Îôà°ûÿÿÿÿ8™¥ÕþÁ1
+m
+java:S3252"PUse static access with "org.hibernate.cfg.AvailableSettings" for "HBM2DDL_AUTO".(µù¦©8™¥ÕþÁ1
