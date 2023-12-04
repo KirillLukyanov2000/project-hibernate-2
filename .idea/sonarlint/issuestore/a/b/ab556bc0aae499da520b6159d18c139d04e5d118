@@ -1,3 +1,6 @@
 
-G	java:S106"+Replace this use of System.out by a logger.(’Ÿ“¨8şÇ…„Â1
-G	java:S106"+Replace this use of System.out by a logger.(ğ¹ªÇ8È…„Â1
+m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(íÂ›‡8Ş“¼ªÃ1
+b
+java:S1854"ERemove this useless assignment to local variable "ReturnedInventory".(íÂ›‡8ä“¼ªÃ1
+S
+java:S1481"6Remove this unused "ReturnedInventory" local variable.(íÂ›‡8æ“¼ªÃ1

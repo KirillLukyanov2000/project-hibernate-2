@@ -18,12 +18,12 @@ public class CustomerController {
 
         CustomerInfo result = new CustomerInfo();
         result.customerId = customer.getCustomerId();
-        result.storeId = customer.getStoreId();
+        result.store = customer.getStore();
         result.firstName = customer.getFirstName();
         result.lastName = customer.getLastName();
         result.email = customer.getEmail();
-        result.addressId = customer.getAddressId();
-        result.active = customer.getActive();
+        result.address = customer.getAddress();
+        result.isActive = customer.getActive();
         result.createDate = customer.getCreateDate();
         result.lastUpdate = customer.getLastUpdate();
         result.store = customer.getStore();

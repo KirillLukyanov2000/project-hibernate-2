@@ -4,22 +4,23 @@ import jakarta.persistence.*;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+
 @Entity
-@Table(name = "city")
+@Table(schema = "movie", name = "city")
 public class City {
     @Id
     @Column(name = "city_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Short cityId;
     @Column(name = "city")
     private String city;
-    @Column(name = "country_id")
-    private Short countryId;
-    @Column(name = "last_update")
-    @UpdateTimestamp
-    private LocalDateTime lastUpdate;
     @ManyToOne
     @JoinColumn(name = "country_id")
     private Country country;
+    @Column(name = "last_update")
+    @UpdateTimestamp
+    private LocalDateTime lastUpdate;
+
     public City() {
     }
 
@@ -45,14 +46,6 @@ public class City {
 
     public void setCity(String city) {
         this.city = city;
-    }
-
-    public Short getCountryId() {
-        return countryId;
-    }
-
-    public void setCountryId(Short countryId) {
-        this.countryId = countryId;
     }
 
     public LocalDateTime getLastUpdate() {

@@ -6,24 +6,21 @@ import org.hibernate.annotations.UpdateTimestamp;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "inventory")
+@Table(schema = "movie", name = "inventory")
 public class Inventory {
     @Id
     @Column(name = "inventory_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer inventoryId;
-    @Column(name = "film_id")
-    private Short filmId;
-    @Column(name = "store_id")
-    private Byte storeId;
-    @Column(name = "last_update")
-    @UpdateTimestamp
-    private LocalDateTime lastUpdate;
-    @ManyToOne
-    @JoinColumn(name = "store_id")
-    private Store store;
     @ManyToOne
     @JoinColumn(name = "film_id")
     private Film film;
+    @ManyToOne
+    @JoinColumn(name = "store_id")
+    private Store store;
+    @Column(name = "last_update")
+    @UpdateTimestamp
+    private LocalDateTime lastUpdate;
 
     public Inventory() {
     }
@@ -50,22 +47,6 @@ public class Inventory {
 
     public void setInventoryId(Integer inventoryId) {
         this.inventoryId = inventoryId;
-    }
-
-    public Short getFilmId() {
-        return filmId;
-    }
-
-    public void setFilmId(Short filmId) {
-        this.filmId = filmId;
-    }
-
-    public Byte getStoreId() {
-        return storeId;
-    }
-
-    public void setStoreId(Byte storeId) {
-        this.storeId = storeId;
     }
 
     public LocalDateTime getLastUpdate() {

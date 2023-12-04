@@ -1,6 +1,7 @@
 package ru.javarush.lukyanov.hibernate2.entity;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
@@ -8,33 +9,29 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "payment")
+@Table(schema = "movie", name = "payment")
 public class Payment {
     @Id
     @Column(name = "payment_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Short paymentId;
-    @Column(name = "customer_id")
-    private Short customerId;
-    @Column(name = "staff_id")
-    private Byte staffId;
-    @Column(name = "rental_id")
-    private Integer rentalId;
-    @Column(name = "amount")
-    private java.math.BigDecimal amount;
-    @Column(name = "payment_date")
-    private LocalDate paymentDate;
-    @Column(name = "last_update")
-    @UpdateTimestamp
-    private LocalDateTime lastUpdate;
     @ManyToOne
     @JoinColumn(name = "customer_id")
     private Customer customer;
-    @OneToOne
-    @JoinColumn(name = "address_id", referencedColumnName = "addressId")
-    private Rental rental;
     @ManyToOne
     @JoinColumn(name = "staff_id")
     private Staff staff;
+    @OneToOne
+    @JoinColumn(name = "rental_id")
+    private Rental rental;
+    @Column(name = "amount")
+    private java.math.BigDecimal amount;
+    @Column(name = "payment_date")
+    @CreationTimestamp
+    private LocalDateTime paymentDate;
+    @Column(name = "last_update")
+    @UpdateTimestamp
+    private LocalDateTime lastUpdate;
 
     public Payment() {
     }
@@ -71,30 +68,6 @@ public class Payment {
         this.paymentId = paymentId;
     }
 
-    public Short getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(Short customerId) {
-        this.customerId = customerId;
-    }
-
-    public Byte getStaffId() {
-        return staffId;
-    }
-
-    public void setStaffId(Byte staffId) {
-        this.staffId = staffId;
-    }
-
-    public Integer getRentalId() {
-        return rentalId;
-    }
-
-    public void setRentalId(Integer rentalId) {
-        this.rentalId = rentalId;
-    }
-
     public BigDecimal getAmount() {
         return amount;
     }
@@ -103,11 +76,11 @@ public class Payment {
         this.amount = amount;
     }
 
-    public LocalDate getPaymentDate() {
+    public LocalDateTime getPaymentDate() {
         return paymentDate;
     }
 
-    public void setPaymentDate(LocalDate paymentDate) {
+    public void setPaymentDate(LocalDateTime paymentDate) {
         this.paymentDate = paymentDate;
     }
 

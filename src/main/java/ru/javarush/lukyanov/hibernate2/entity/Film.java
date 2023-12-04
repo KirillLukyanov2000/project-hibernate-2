@@ -5,7 +5,6 @@ import org.hibernate.annotations.Type;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
-import java.sql.Date;
 import java.time.LocalDateTime;
 import java.time.Year;
 import java.util.Set;
@@ -22,7 +21,7 @@ public class Film {
     @Column(name = "description", columnDefinition = "text")
     @Type(type = "text")
     private String description;
-    @Column(name = "release_year")
+    @Column(name = "release_year", columnDefinition = "year")
     private Year releaseYear;
     @ManyToOne
     @JoinColumn(name = "language_id")
@@ -43,23 +42,22 @@ public class Film {
     private Rating rating;
     @Column(name = "special_features", columnDefinition = "set('Trailers', 'Commentaries', 'Deleted Scenes', 'Behind the Scenes')")
     private String specialFeatures;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "film_id", referencedColumnName = "filmId")
-    private FilmText filmText;
     @Column(name = "last_update")
     @UpdateTimestamp
     private LocalDateTime lastUpdate;
-    @Column(name = "categories")
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "film_category", joinColumns = @JoinColumn(name = "film_id", referencedColumnName = "filmId"),
-            inverseJoinColumns = @JoinColumn(name = "category_id", referencedColumnName = "categoryId"))
-    private Set<Category> categories;
-    @Column(name = "actors")
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "film_actor", joinColumns = @JoinColumn(name = "film_id", referencedColumnName = "filmId"),
-            inverseJoinColumns = @JoinColumn(name = "actor_id", referencedColumnName = "actorId"))
-    private Set<Actor> actors;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "film_id", referencedColumnName = "film_id")
+    private FilmText filmText;
 
+    @ManyToMany
+    @JoinTable(name = "film_category", joinColumns = @JoinColumn(name = "film_id", referencedColumnName = "film_id"),
+            inverseJoinColumns = @JoinColumn(name = "category_id", referencedColumnName = "category_id"))
+    private Set<Category> categories;
+
+    @ManyToMany
+    @JoinTable(name = "film_actor", joinColumns = @JoinColumn(name = "film_id", referencedColumnName = "film_id"),
+            inverseJoinColumns = @JoinColumn(name = "actor_id", referencedColumnName = "actor_id"))
+    private Set<Actor> actors;
 
     public Film() {
     }
@@ -120,28 +118,24 @@ public class Film {
         this.description = description;
     }
 
-    public Date getReleaseYear() {
+    public Year getReleaseYear() {
         return releaseYear;
     }
 
-    public void setReleaseYear(Date releaseYear) {
+    public void setReleaseYear(Year releaseYear) {
         this.releaseYear = releaseYear;
     }
 
-    public Byte getLanguageId() {
-        return languageId;
+    public Language getOriginalLanguage() {
+        return originalLanguage;
     }
 
-    public void setLanguageId(Byte languageId) {
-        this.languageId = languageId;
+    public void setOriginalLanguage(Language originalLanguage) {
+        this.originalLanguage = originalLanguage;
     }
 
-    public Byte getOriginalLanguageId() {
-        return originalLanguageId;
-    }
-
-    public void setOriginalLanguageId(Byte originalLanguageId) {
-        this.originalLanguageId = originalLanguageId;
+    public void setSpecialFeatures(String specialFeatures) {
+        this.specialFeatures = specialFeatures;
     }
 
     public Byte getRentalDuration() {
@@ -184,12 +178,8 @@ public class Film {
         this.rating = rating;
     }
 
-    public Set<SpecialFeature> getSpecialFeatures() {
+    public String getSpecialFeatures() {
         return specialFeatures;
-    }
-
-    public void setSpecialFeatures(Set<SpecialFeature> specialFeatures) {
-        this.specialFeatures = specialFeatures;
     }
 
     public LocalDateTime getLastUpdate() {

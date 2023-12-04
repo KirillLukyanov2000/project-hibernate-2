@@ -1,17 +1,15 @@
 package ru.javarush.lukyanov.hibernate2.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 @Entity
-@Table(name = "country")
+@Table(schema = "movie", name = "country")
 public class Country {
     @Id
     @Column(name = "country_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Short countryId;
     @Column(name = "country")
     private String country;

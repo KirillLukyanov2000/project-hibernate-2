@@ -3,7 +3,9 @@ package ru.javarush.lukyanov.hibernate2.entity;
 import jakarta.persistence.*;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import java.time.LocalDate;
+
+import java.time.LocalDateTime;
+
 @Entity
 @Table(schema = "movie", name = "language")
 public class Language {
@@ -15,7 +17,7 @@ public class Language {
     private String name;
     @Column(name = "last_update")
     @UpdateTimestamp
-    private LocalDate lastUpdate;
+    private LocalDateTime lastUpdate;
 
     public Language() {
     }
@@ -36,11 +38,11 @@ public class Language {
         this.name = name;
     }
 
-    public LocalDate getLastUpdate() {
+    public LocalDateTime getLastUpdate() {
         return lastUpdate;
     }
 
-    public void setLastUpdate(LocalDate lastUpdate) {
+    public void setLastUpdate(LocalDateTime lastUpdate) {
         this.lastUpdate = lastUpdate;
     }
 }

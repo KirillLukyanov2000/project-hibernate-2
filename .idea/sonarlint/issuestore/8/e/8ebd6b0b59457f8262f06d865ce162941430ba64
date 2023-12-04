@@ -1,2 +1,4 @@
 
-c	java:S107*"BConstructor has 11 parameters, which is greater than 7 authorized.(Ãöíßøÿÿÿÿ8óÒƒÂ1
+]	java:S107+"AConstructor has 9 parameters, which is greater than 7 authorized.(šåã®8ô““ŸÃ1
+R
+java:S1128"0Remove this unused import 'java.time.LocalDate'.(›‘¬èıÿÿÿÿ8‡§’ŸÃ1

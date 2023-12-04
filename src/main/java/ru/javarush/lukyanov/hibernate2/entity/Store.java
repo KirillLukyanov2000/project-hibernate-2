@@ -7,24 +7,21 @@ import java.time.LocalDateTime;
 import java.util.Set;
 
 @Entity
-@Table(name = "store")
+@Table(schema = "movie", name = "store")
 public class Store {
     @Id
     @Column(name = "store_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Byte storeId;
-    @Column(name = "manager_staff_id")
-    private Byte managerStaffId;
-    @Column(name = "address_id")
-    private Short addressId;
+    @OneToOne
+    @JoinColumn(name = "manager_staff_id")
+    private Staff staff;
+    @OneToOne
+    @JoinColumn(name = "address_id")
+    private Address address;
     @Column(name = "last_update")
     @UpdateTimestamp
     private LocalDateTime lastUpdate;
-    @OneToOne
-    @JoinColumn(name = "address_id", referencedColumnName = "addressId")
-    private Address address;
-
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "staffId")
-    private Staff staff;
 
     public Store() {
     }
@@ -51,22 +48,6 @@ public class Store {
 
     public void setStoreId(Byte storeId) {
         this.storeId = storeId;
-    }
-
-    public Byte getManagerStaffId() {
-        return managerStaffId;
-    }
-
-    public void setManagerStaffId(Byte managerStaffId) {
-        this.managerStaffId = managerStaffId;
-    }
-
-    public Short getAddressId() {
-        return addressId;
-    }
-
-    public void setAddressId(Short addressId) {
-        this.addressId = addressId;
     }
 
     public LocalDateTime getLastUpdate() {

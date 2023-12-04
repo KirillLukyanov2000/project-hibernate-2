@@ -7,33 +7,29 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "rental")
+@Table(schema = "movie", name = "rental")
 public class Rental {
     @Id
     @Column(name = "rental_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int rentalId;
     @Column(name = "rental_date")
-    private LocalDate rentalDate;
-    @Column(name = "inventory_id")
-    private Integer inventoryId;
-    @Column(name = "customer_id")
-    private Integer customerId;
-    @Column(name = "return_date")
-    private LocalDate returnDate;
-    @Column(name = "staff_id")
-    private Byte staffId;
-    @Column(name = "last_update")
-    @UpdateTimestamp
-    private LocalDateTime lastUpdate;
-    @ManyToOne
-    @JoinColumn(name = "customer_id")
-    private Customer customer;
-    @ManyToOne
-    @JoinColumn(name = "staff_id")
-    private Staff staff;
+    private LocalDateTime rentalDate;
     @ManyToOne
     @JoinColumn(name = "inventory_id")
     private Inventory inventory;
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
+    @Column(name = "return_date")
+    private LocalDateTime returnDate;
+    @ManyToOne
+    @JoinColumn(name = "staff_id")
+    private Staff staff;
+    @Column(name = "last_update")
+    @UpdateTimestamp
+    private LocalDateTime lastUpdate;
+
 
     public Rental() {
     }
@@ -70,47 +66,24 @@ public class Rental {
         this.rentalId = rentalId;
     }
 
-    public LocalDate getRentalDate() {
+    public LocalDateTime getRentalDate() {
         return rentalDate;
     }
 
-    public void setRentalDate(LocalDate rentalDate) {
+    public void setRentalDate(LocalDateTime rentalDate) {
         this.rentalDate = rentalDate;
     }
 
-    public Integer getInventoryId() {
-        return inventoryId;
-    }
 
-    public void setInventoryId(Integer inventoryId) {
-        this.inventoryId = inventoryId;
-    }
-
-    public Integer getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(Integer customerId) {
-        this.customerId = customerId;
-    }
-
-    public LocalDate getReturnDate() {
+    public LocalDateTime getReturnDate() {
         return returnDate;
     }
 
-    public void setReturnDate(LocalDate returnDate) {
+    public void setReturnDate(LocalDateTime returnDate) {
         this.returnDate = returnDate;
     }
 
-    public Byte getStaffId() {
-        return staffId;
-    }
-
-    public void setStaffId(Byte staffId) {
-        this.staffId = staffId;
-    }
-
-    public LocalDateTime getLastUpdate() {
+     public LocalDateTime getLastUpdate() {
         return lastUpdate;
     }
 

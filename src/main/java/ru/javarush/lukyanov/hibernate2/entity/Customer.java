@@ -1,56 +1,55 @@
 package ru.javarush.lukyanov.hibernate2.entity;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.Type;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "customer")
+@Table(schema = "movie", name = "customer")
 public class Customer {
     @Id
     @Column(name = "customer_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Short customerId;
-    @Column(name = "store_id")
-    private Byte storeId;
+    @ManyToOne
+    @JoinColumn(name = "store_id")
+    private Store store;
     @Column(name = "first_name")
     private String firstName;
     @Column(name = "last_name")
     private String lastName;
     @Column(name = "email")
     private String email;
-    @Column(name = "address_id")
-    private Short addressId;
-    @Column(name = "active")
-    private Byte active;
+    @OneToOne
+    @JoinColumn(name = "address_id")
+    private Address address;
+    @Column(name = "active", columnDefinition = "BIT")
+    @Type(type = "org.hibernate.type.NumericBooleanType")
+    private Boolean isActive;
     @Column(name = "create_date")
-    private LocalDate createDate;
+    @CreationTimestamp
+    private LocalDateTime createDate;
     @Column(name = "last_update")
     @UpdateTimestamp
     private LocalDateTime lastUpdate;
-    @ManyToOne
-    @JoinColumn(name = "store_id")
-    private Store store;
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "address_id", referencedColumnName = "addressId")
-    private Address address;
 
     public Customer() {
     }
 
-    public Customer(Short customerId, Byte storeId, String firstName, String lastName, String email, Short addressId, Byte active, LocalDate createDate, LocalDateTime lastUpdate, Store store, Address address) {
+    public Customer(Short customerId, Store store, String firstName, String lastName, String email, Address address, Boolean isActive, LocalDateTime createDate, LocalDateTime lastUpdate) {
         this.customerId = customerId;
-        this.storeId = storeId;
+        this.store = store;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.addressId = addressId;
-        this.active = active;
+        this.address = address;
+        this.isActive = isActive;
         this.createDate = createDate;
         this.lastUpdate = lastUpdate;
-        this.store = store;
-        this.address = address;
     }
 
     public Address getAddress() {
@@ -77,27 +76,20 @@ public class Customer {
         this.email = email;
     }
 
-    public Short getAddressId() {
-        return addressId;
+
+    public Boolean getActive() {
+        return isActive;
     }
 
-    public void setAddressId(Short addressId) {
-        this.addressId = addressId;
+    public void setActive(Boolean isActive) {
+        this.isActive = isActive;
     }
 
-    public Byte getActive() {
-        return active;
-    }
-
-    public void setActive(Byte active) {
-        this.active = active;
-    }
-
-    public LocalDate getCreateDate() {
+    public LocalDateTime getCreateDate() {
         return createDate;
     }
 
-    public void setCreateDate(LocalDate createDate) {
+    public void setCreateDate(LocalDateTime createDate) {
         this.createDate = createDate;
     }
 
@@ -115,14 +107,6 @@ public class Customer {
 
     public void setCustomerId(Short customerId) {
         this.customerId = customerId;
-    }
-
-    public Byte getStoreId() {
-        return storeId;
-    }
-
-    public void setStoreId(Byte storeId) {
-        this.storeId = storeId;
     }
 
     public String getFirstName() {

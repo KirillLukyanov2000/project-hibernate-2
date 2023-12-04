@@ -1,5 +1,15 @@
 
+y
+java:S1450"WRemove the "customer" field and declare it as a local variable in the relevant methods.(íŸÞÛþÿÿÿÿ8úž©ªÃ1
 ƒ
-java:S1450"aRemove the "customerRepository" field and declare it as a local variable in the relevant methods.(ÎìÊûýÿÿÿÿ8’’¼ƒÂ1
-N
-java:S1068",Remove this unused "customer" private field.(íŸÞÛþÿÿÿÿ8º˜éƒÂ1
+java:S1450"aRemove the "customerRepository" field and declare it as a local variable in the relevant methods.(ÎìÊûýÿÿÿÿ8úž©ªÃ1
+~
+java:S1450"aRemove the "repositoryProvider" field and declare it as a local variable in the relevant methods.(ÐëÈß8ûž©ªÃ1
+y
+java:S1128"WRemove this unused import 'ru.javarush.lukyanov.hibernate2.repository.ActorRepository'.(õ—°«üÿÿÿÿ8‚Ÿ©ªÃ1
+R
+java:S1128"0Remove this unused import 'java.time.LocalDate'.(›‘¬èýÿÿÿÿ8‚Ÿ©ªÃ1
+V
+java:S1128"4Remove this unused import 'java.time.LocalDateTime'.(æÃ§ƒüÿÿÿÿ8‚Ÿ©ªÃ1
+Q
+java:S1128	"/Remove this unused import 'java.util.Optional'.(¨˜ëÝüÿÿÿÿ8‚Ÿ©ªÃ1

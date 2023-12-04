@@ -1,0 +1,58 @@
+
+K
+java:S1121".Extract the assignment out of this expression.(âÍİş8“´Ã¥Ã1
+P
+java:S1121".Extract the assignment out of this expression.(°¾Õùÿÿÿÿ8‚åÖ¥Ã1
+P
+java:S1121 ".Extract the assignment out of this expression.(§ÒÕúÿÿÿÿ8ÔŠ×¥Ã1
+K
+java:S1121$".Extract the assignment out of this expression.(µ¿Ê¿8ÚÆ×¥Ã1
+K
+java:S1121(".Extract the assignment out of this expression.(ìŠƒµ8µ˜Ø¥Ã1
+P
+java:S1121,".Extract the assignment out of this expression.(Ã¶Õßüÿÿÿÿ8µ˜Ø¥Ã1
+K
+java:S11210".Extract the assignment out of this expression.(íİã8é§Ú¥Ã1
+K
+java:S11214".Extract the assignment out of this expression.(ò·é8…ÌÚ¥Ã1
+P
+java:S11218".Extract the assignment out of this expression.(·””ìøÿÿÿÿ8Ì‡Û¥Ã1
+K
+java:S1121<".Extract the assignment out of this expression.(ê¦†Œ8àåÛ¥Ã1
+K
+java:S1121@".Extract the assignment out of this expression.(ç¦¾Ï8àåÛ¥Ã1
+P
+java:S1121D".Extract the assignment out of this expression.(ƒ›Óùÿÿÿÿ8ò›Ü¥Ã1
+J
+java:S1121H".Extract the assignment out of this expression.(ØæZ8Á§ô¥Ã1
+{
+java:S1450	"^Remove the "actorRepository" field and declare it as a local variable in the relevant methods.(°¿†¯8š´Ã¥Ã1
+}
+java:S1450
+"`Remove the "addressRepository" field and declare it as a local variable in the relevant methods.(†¹²8ˆåÖ¥Ã1
+~
+java:S1450"aRemove the "categoryRepository" field and declare it as a local variable in the relevant methods.(Íí¤ª8ÙŠ×¥Ã1
+z
+java:S1450"]Remove the "cityRepository" field and declare it as a local variable in the relevant methods.(íÍú¨8Ê§ô¥Ã1
+‚
+java:S1450"`Remove the "countryRepository" field and declare it as a local variable in the relevant methods.(¤›ûíùÿÿÿÿ8ŞÆ×¥Ã1
+~
+java:S1450"aRemove the "customerRepository" field and declare it as a local variable in the relevant methods.(ÇÒ†£8º˜Ø¥Ã1
+
+java:S1450"]Remove the "filmRepository" field and declare it as a local variable in the relevant methods.(¯À»ûÿÿÿÿÿ8º˜Ø¥Ã1
+
+java:S1450"bRemove the "inventoryRepository" field and declare it as a local variable in the relevant methods.(¿°¨8ğ§Ú¥Ã1
+ƒ
+java:S1450"aRemove the "languageRepository" field and declare it as a local variable in the relevant methods.(ÏÛ†—úÿÿÿÿ8ÌÚ¥Ã1
+|
+java:S1450"`Remove the "paymentRepository" field and declare it as a local variable in the relevant methods.(íŒÃ$8Ó‡Û¥Ã1
+
+java:S1450"_Remove the "rentalRepository" field and declare it as a local variable in the relevant methods.(àõØÆÿÿÿÿÿ8èåÛ¥Ã1
+{
+java:S1450"^Remove the "staffRepository" field and declare it as a local variable in the relevant methods.(šòî¡8éåÛ¥Ã1
+€
+java:S1450"^Remove the "storeRepository" field and declare it as a local variable in the relevant methods.(…¶”Ùúÿÿÿÿ8‡œÜ¥Ã1
+i
+java:S1128"LRemove this unused import 'ru.javarush.lukyanov.hibernate2.entity.Language'.(ŒÃš³8ìÕÌªÃ1
+]
+java:S1128"@Remove this unused import 'java.util.concurrent.CountDownLatch'.(¤ƒô§8ìÕÌªÃ1

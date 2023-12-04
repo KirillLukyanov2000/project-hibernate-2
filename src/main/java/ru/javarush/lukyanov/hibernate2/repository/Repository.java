@@ -1,5 +1,8 @@
 package ru.javarush.lukyanov.hibernate2.repository;
 
+import org.hibernate.Session;
+import ru.javarush.lukyanov.hibernate2.entity.Store;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -13,6 +16,8 @@ public interface Repository<T> {
     T update(T entity);
 
     Optional<T> get(long id);
+
+    List<T> getItems(int offset, int count);
 
     void delete(T entity);
 }

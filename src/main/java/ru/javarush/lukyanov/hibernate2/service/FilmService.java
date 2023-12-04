@@ -10,7 +10,7 @@ public class FilmService {
     private FilmRepository filmRepository;
 
     public Film addNewFilm(Film film) {
-        filmRepository = FilmRepository.getFilmRepository();
+        filmRepository = new RepositoryProvider().getFilmRepository();
         return filmRepository.save(film);
     }
 }

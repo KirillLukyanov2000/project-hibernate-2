@@ -1,15 +1,5 @@
 
-»
-java:S6548"˜A Singleton implementation was detected. Make sure the use of the Singleton pattern is required and the implementation is the right one for the context.(¡›‹ùÿÿÿÿ8“¥ÕşÁ1
-m
-java:S3252"KUse static access with "org.hibernate.cfg.AvailableSettings" for "DIALECT".(³ú®ÿÿÿÿÿ8—¥ÕşÁ1
-g
-java:S3252"JUse static access with "org.hibernate.cfg.AvailableSettings" for "DRIVER".(ŠåÔâ8—¥ÕşÁ1
-i
-java:S3252"GUse static access with "org.hibernate.cfg.AvailableSettings" for "URL".(ÁĞ¤·ÿÿÿÿÿ8˜¥ÕşÁ1
-j
-java:S3252"HUse static access with "org.hibernate.cfg.AvailableSettings" for "USER".(Ì¦ˆ÷øÿÿÿÿ8˜¥ÕşÁ1
-j
-java:S3252"HUse static access with "org.hibernate.cfg.AvailableSettings" for "PASS".(Óß ´şÿÿÿÿ8˜¥ÕşÁ1
-m
-java:S3252"PUse static access with "org.hibernate.cfg.AvailableSettings" for "HBM2DDL_AUTO".(µù¦©8™¥ÕşÁ1
+H
+java:S1168I"+Return an empty collection instead of null.(¥¹ï8±Œ‰¦Ã1
+q
+java:S1128	"TRemove this unused import 'ru.javarush.lukyanov.hibernate2.service.CustomerService'.(ïµ8‰Êò©Ã1

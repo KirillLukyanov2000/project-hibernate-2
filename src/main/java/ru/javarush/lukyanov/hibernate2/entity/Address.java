@@ -6,10 +6,11 @@ import org.hibernate.annotations.UpdateTimestamp;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "address")
+@Table(schema = "movie", name = "address")
 public class Address {
     @Id
     @Column(name = "address_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Short addressId;
     @Column(name = "address")
     private String address;
@@ -17,8 +18,9 @@ public class Address {
     private String address2;
     @Column(name = "district")
     private String district;
-    @Column(name = "city_id")
-    private Short cityId;
+    @ManyToOne
+    @JoinColumn(name = "city_id")
+    private City city;
     @Column(name = "postal_code")
     private String postalCode;
     @Column(name = "phone")
@@ -26,21 +28,8 @@ public class Address {
     @Column(name = "last_update")
     @UpdateTimestamp
     private LocalDateTime lastUpdate;
-    @ManyToOne
-    @JoinColumn(name = "city_id")
-    private City city;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "storeId")
-    private Store store;
 
     public Address() {
-    }
-
-    public Store getStore() {
-        return store;
-    }
-
-    public void setStore(Store store) {
-        this.store = store;
     }
 
     public City getCity() {
@@ -101,14 +90,6 @@ public class Address {
 
     public String getDistrict() {
         return district;
-    }
-
-    public Short getCityId() {
-        return cityId;
-    }
-
-    public void setCityId(Short cityId) {
-        this.cityId = cityId;
     }
 
     public void setDistrict(String district) {

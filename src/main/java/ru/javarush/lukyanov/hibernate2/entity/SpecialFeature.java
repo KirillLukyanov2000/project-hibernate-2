@@ -16,10 +16,17 @@ public enum SpecialFeature {
     public String getFeature() {
         return feature;
     }
+
     public static SpecialFeature getSpecialFeatureByValue(String feature) {
         if (isNull(feature) || feature.isEmpty()) {
             return null;
         }
-        return SpecialFeature.valueOf(feature);
+        SpecialFeature[] specialFeatures = SpecialFeature.values();
+        for (SpecialFeature specialFeature : specialFeatures) {
+            if (specialFeature.feature.equals(feature)) {
+                return specialFeature;
+            }
+        }
+        return null;
     }
 }

@@ -1,19 +1,21 @@
 package ru.javarush.lukyanov.hibernate2.entity;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.Type;
 
 @Entity
-@Table(name = "film_text")
+@Table(schema = "movie", name = "film_text")
 public class FilmText {
     @Id
     @Column(name = "film_id")
     private Short filmId;
     @Column(name = "title")
     private String title;
-    @Column(name = "description")
+    @Column(name = "description", columnDefinition = "text")
+    @Type(type = "text")
     private String description;
-    @Column
-    @OneToOne(mappedBy = "filmId")
+    @OneToOne
+    @JoinColumn(name = "film_id")
     private Film film;
 
     public Film getFilm() {
