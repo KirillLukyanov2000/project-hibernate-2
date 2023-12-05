@@ -1,0 +1,17 @@
+
+H
+java:S3010"+Remove this assignment of "sessionFactory".(Š¿åÒ8üï¤Ã1
+m
+java:S3252"KUse static access with "org.hibernate.cfg.AvailableSettings" for "DIALECT".(³ú®ÿÿÿÿÿ8›±à¤Ã1
+g
+java:S3252"JUse static access with "org.hibernate.cfg.AvailableSettings" for "DRIVER".(ŠåÔâ8œ±à¤Ã1
+i
+java:S3252"GUse static access with "org.hibernate.cfg.AvailableSettings" for "URL".(ÁĞ¤·ÿÿÿÿÿ8±à¤Ã1
+j
+java:S3252"HUse static access with "org.hibernate.cfg.AvailableSettings" for "USER".(Ì¦ˆ÷øÿÿÿÿ8±à¤Ã1
+j
+java:S3252"HUse static access with "org.hibernate.cfg.AvailableSettings" for "PASS".(Óß ´şÿÿÿÿ8±à¤Ã1
+r
+java:S3252"PUse static access with "org.hibernate.cfg.AvailableSettings" for "HBM2DDL_AUTO".(Îôà°ûÿÿÿÿ8Ÿ±à¤Ã1
+Q
+java:S2209."5Change this instance-reference to a static reference.(ìòÚ8œŠú¤Ã1

@@ -6,8 +6,7 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import ru.javarush.lukyanov.hibernate2.entity.*;
 
-import ru.javarush.lukyanov.hibernate2.service.CustomerService;
-import ru.javarush.lukyanov.hibernate2.service.SessionFactoryProvider;
+import ru.javarush.lukyanov.hibernate2.service.util.SessionFactoryProvider;
 
 import java.util.List;
 import java.util.Optional;
@@ -63,7 +62,9 @@ public class CustomerRepository implements Repository<Customer> {
     @Override
     public Optional<Customer> get(long id) {
         try (Session session = sessionFactory.openSession()) {
-            Customer customer = session.find(Customer.class, id);
+            Query<Customer> query = session.createQuery("select c from Customer c where c.customerId = :num", Customer.class);
+            query.setParameter("num", id);
+            Customer customer = query.getSingleResult();
             return Optional.ofNullable(customer);
         }
     }

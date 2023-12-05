@@ -1,6 +1,13 @@
 
-m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(íÂ›‡8Ş“¼ªÃ1
+Z
+java:S1854"8Remove this useless assignment to local variable "film".(€ƒÆ¤şÿÿÿÿ8èĞËÃ1
+e
+java:S1854"CRemove this useless assignment to local variable "rentedInventory".(ºï€Üûÿÿÿÿ8èĞËÃ1
 b
-java:S1854"ERemove this useless assignment to local variable "ReturnedInventory".(íÂ›‡8ä“¼ªÃ1
+java:S1854"ERemove this useless assignment to local variable "returnedInventory".(Ñ±©ø8éĞËÃ1
 S
-java:S1481"6Remove this unused "ReturnedInventory" local variable.(íÂ›‡8æ“¼ªÃ1
+java:S1481"6Remove this unused "returnedInventory" local variable.(Ñ±©ø8ëĞËÃ1
+V
+java:S1481"4Remove this unused "rentedInventory" local variable.(ºï€Üûÿÿÿÿ8ëĞËÃ1
+K
+java:S1481")Remove this unused "film" local variable.(€ƒÆ¤şÿÿÿÿ8ìĞËÃ1

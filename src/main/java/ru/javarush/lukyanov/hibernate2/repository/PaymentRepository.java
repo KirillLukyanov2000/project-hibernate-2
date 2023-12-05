@@ -1,18 +1,21 @@
 package ru.javarush.lukyanov.hibernate2.repository;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import ru.javarush.lukyanov.hibernate2.entity.Payment;
-import ru.javarush.lukyanov.hibernate2.service.SessionFactoryProvider;
+import ru.javarush.lukyanov.hibernate2.service.util.SessionFactoryProvider;
 
 import java.util.List;
 import java.util.Optional;
 
-public class PaymentRepository implements Repository <Payment> {
+public class PaymentRepository implements Repository<Payment> {
     private final SessionFactory sessionFactory;
 
     public PaymentRepository() {
         sessionFactory = SessionFactoryProvider.getSessionFactory();
     }
+
     @Override
     public List<Payment> getAll(int pageNumber, int pageSize) {
         return null;
@@ -24,8 +27,13 @@ public class PaymentRepository implements Repository <Payment> {
     }
 
     @Override
-    public Payment save(Payment entity) {
-        return null;
+    public Payment save(Payment payment) {
+        try (Session session = sessionFactory.openSession()) {
+            Transaction transaction = session.beginTransaction();
+            session.persist(payment);
+            transaction.commit();
+            return session.get(Payment.class, payment.getPaymentId());
+        }
     }
 
     @Override

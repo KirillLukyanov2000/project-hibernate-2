@@ -1,10 +1,9 @@
 
+T
+java:S3655"7Call "Optional#isPresent()" before accessing the value.(ø²å8ÔÎÍÃ1
+u
+java:S1450"SRemove the "film" field and declare it as a local variable in the relevant methods.(²Ë›Òşÿÿÿÿ8‘ÔÎÍÃ1
 
-java:S1450
-"]Remove the "filmRepository" field and declare it as a local variable in the relevant methods.(¶“Ü¥øÿÿÿÿ8æêË¥Ã1
-n
-java:S1128"LRemove this unused import 'ru.javarush.lukyanov.hibernate2.entity.Customer'.(Õ‰‹ùÿÿÿÿ8ª“´ªÃ1
-w
-java:S1128"ZRemove this unused import 'ru.javarush.lukyanov.hibernate2.repository.CustomerRepository'.(åı¡8ª“´ªÃ1
-J
-java:S1068	"(Remove this unused "film" private field.(²Ë›Òşÿÿÿÿ8èêË¥Ã1
+java:S1450"]Remove the "filmRepository" field and declare it as a local variable in the relevant methods.(¶“Ü¥øÿÿÿÿ8’ÔÎÍÃ1
+~
+java:S1450"aRemove the "repositoryProvider" field and declare it as a local variable in the relevant methods.(ĞëÈß8’ÔÎÍÃ1

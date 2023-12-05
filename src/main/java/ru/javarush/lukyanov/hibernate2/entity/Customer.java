@@ -5,7 +5,6 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -38,18 +37,6 @@ public class Customer {
     private LocalDateTime lastUpdate;
 
     public Customer() {
-    }
-
-    public Customer(Short customerId, Store store, String firstName, String lastName, String email, Address address, Boolean isActive, LocalDateTime createDate, LocalDateTime lastUpdate) {
-        this.customerId = customerId;
-        this.store = store;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.address = address;
-        this.isActive = isActive;
-        this.createDate = createDate;
-        this.lastUpdate = lastUpdate;
     }
 
     public Address getAddress() {

@@ -4,7 +4,7 @@ package ru.javarush.lukyanov.hibernate2.controller;
 import ru.javarush.lukyanov.hibernate2.entity.Address;
 import ru.javarush.lukyanov.hibernate2.entity.Store;
 
-import java.time.LocalDate;
+
 import java.time.LocalDateTime;
 
 public class CustomerInfo {

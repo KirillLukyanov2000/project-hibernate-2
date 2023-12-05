@@ -1,9 +1,9 @@
 
+~
+java:S1488H"\Immediately return this expression instead of assigning it to the temporary variable "film".(•œçµıÿÿÿÿ8ğõ‡ËÃ1
 £
-java:S11863"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(™ÊûÀÿÿÿÿÿ8¸¿óƒÂ1
+java:S1186@"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(™ÊûÀÿÿÿÿÿ8„ö‡ËÃ1
 H
-java:S1168"+Return an empty collection instead of null.(¥¹ï8úñ«£Ã1
+java:S1168"+Return an empty collection instead of null.(¥¹ï8ˆö‡ËÃ1
 H
-java:S1168/"+Return an empty collection instead of null.(¥¹ï8İº‰¦Ã1
-O
-java:S1068"2Remove this unused "sessionFactory" private field.(´à¢ö8ƒ¦„Â1
+java:S1168<"+Return an empty collection instead of null.(¥¹ï8‹ö‡ËÃ1

@@ -3,11 +3,16 @@ package ru.javarush.lukyanov.hibernate2.entity;
 import jakarta.persistence.*;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.UpdateTimestamp;
+import ru.javarush.lukyanov.hibernate2.service.util.YearAttributeConverter;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.Year;
+import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
+
+import static java.util.Objects.isNull;
 
 @Entity
 @Table(schema = "movie", name = "film")
@@ -22,6 +27,7 @@ public class Film {
     @Type(type = "text")
     private String description;
     @Column(name = "release_year", columnDefinition = "year")
+    @Convert(converter = YearAttributeConverter.class)
     private Year releaseYear;
     @ManyToOne
     @JoinColumn(name = "language_id")
@@ -38,7 +44,7 @@ public class Film {
     @Column(name = "replacement_cost")
     private java.math.BigDecimal replacementCost;
     @Column(name = "rating", columnDefinition = "enum('G', 'PG', 'PG-13', 'R', 'NC-17')")
-    @Enumerated(EnumType.ORDINAL)
+    @Convert(converter = Rating.RatingConverter.class)
     private Rating rating;
     @Column(name = "special_features", columnDefinition = "set('Trailers', 'Commentaries', 'Deleted Scenes', 'Behind the Scenes')")
     private String specialFeatures;
@@ -126,6 +132,10 @@ public class Film {
         this.releaseYear = releaseYear;
     }
 
+    public void setSpecialFeatures(String specialFeatures) {
+        this.specialFeatures = specialFeatures;
+    }
+
     public Language getOriginalLanguage() {
         return originalLanguage;
     }
@@ -134,8 +144,25 @@ public class Film {
         this.originalLanguage = originalLanguage;
     }
 
-    public void setSpecialFeatures(String specialFeatures) {
-        this.specialFeatures = specialFeatures;
+    public Set<SpecialFeature> getSpecialFeatures() {
+        if (isNull(specialFeatures) || getSpecialFeatures().isEmpty()) {
+            return null;
+        }
+        Set<SpecialFeature> result = new HashSet<>();
+        String[] strings = specialFeatures.split(",");
+        for (String string : strings) {
+            result.add(SpecialFeature.getSpecialFeatureByValue(string));
+        }
+        result.remove(null);
+        return result;
+    }
+
+    public void setSpecialFeatures(Set<SpecialFeature> specialFeatures) {
+        if (isNull(specialFeatures)) {
+            this.specialFeatures = null;
+        } else {
+            this.specialFeatures = specialFeatures.stream().map(SpecialFeature::getFeature).collect(Collectors.joining(","));
+        }
     }
 
     public Byte getRentalDuration() {
@@ -178,9 +205,6 @@ public class Film {
         this.rating = rating;
     }
 
-    public String getSpecialFeatures() {
-        return specialFeatures;
-    }
 
     public LocalDateTime getLastUpdate() {
         return lastUpdate;

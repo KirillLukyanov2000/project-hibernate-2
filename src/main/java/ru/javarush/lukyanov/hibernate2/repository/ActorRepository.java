@@ -1,21 +1,23 @@
 package ru.javarush.lukyanov.hibernate2.repository;
 
+import org.hibernate.Query;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import ru.javarush.lukyanov.hibernate2.service.SessionFactoryProvider;
+import ru.javarush.lukyanov.hibernate2.entity.Actor;
+import ru.javarush.lukyanov.hibernate2.service.util.SessionFactoryProvider;
 
 import java.util.List;
 import java.util.Optional;
 
-public class ActorRepository implements Repository<ActorRepository> {
+public class ActorRepository implements Repository<Actor> {
     private final SessionFactory sessionFactory;
 
     public ActorRepository() {
         sessionFactory = SessionFactoryProvider.getSessionFactory();
     }
 
-
     @Override
-    public List<ActorRepository> getAll(int pageNumber, int pageSize) {
+    public List<Actor> getAll(int pageNumber, int pageSize) {
         return null;
     }
 
@@ -25,27 +27,32 @@ public class ActorRepository implements Repository<ActorRepository> {
     }
 
     @Override
-    public ActorRepository save(ActorRepository entity) {
+    public Actor save(Actor entity) {
         return null;
     }
 
     @Override
-    public ActorRepository update(ActorRepository entity) {
+    public Actor update(Actor entity) {
         return null;
     }
 
     @Override
-    public Optional<ActorRepository> get(long id) {
+    public Optional<Actor> get(long id) {
         return Optional.empty();
     }
 
     @Override
-    public List<ActorRepository> getItems(int offset, int count) {
-        return null;
+    public List<Actor> getItems(int offset, int count) {
+        try (Session session = sessionFactory.openSession()) {
+            Query<Actor> query = session.createQuery("from Actor", Actor.class);
+            query.setFirstResult(offset);
+            query.setMaxResults(count);
+            return query.getResultList();
+        }
     }
 
     @Override
-    public void delete(ActorRepository entity) {
-
+    public void delete(Actor entity) {
     }
+
 }

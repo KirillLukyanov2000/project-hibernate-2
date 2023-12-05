@@ -4,7 +4,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import ru.javarush.lukyanov.hibernate2.entity.Address;
-import ru.javarush.lukyanov.hibernate2.service.SessionFactoryProvider;
+import ru.javarush.lukyanov.hibernate2.service.util.SessionFactoryProvider;
 
 import java.util.List;
 import java.util.Optional;

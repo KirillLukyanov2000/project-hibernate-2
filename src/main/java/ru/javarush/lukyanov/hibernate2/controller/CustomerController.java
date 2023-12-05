@@ -26,8 +26,7 @@ public class CustomerController {
         result.isActive = customer.getActive();
         result.createDate = customer.getCreateDate();
         result.lastUpdate = customer.getLastUpdate();
-        result.store = customer.getStore();
-        result.address = customer.getAddress();
+
         return result;
     }
 }

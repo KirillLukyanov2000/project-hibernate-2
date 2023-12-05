@@ -1,9 +1,9 @@
 
+€
+java:S1488F"^Immediately return this expression instead of assigning it to the temporary variable "rental".(°…åáûÿÿÿÿ8ÆÔ¬ÉÃ1
 
-java:S1186/"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ŞŠÛ08¬¸œªÃ1
+java:S1186>"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ŞŠÛ08ÙÔ¬ÉÃ1
 H
-java:S1168"+Return an empty collection instead of null.(¥¹ï8¯¸œªÃ1
+java:S1168"+Return an empty collection instead of null.(¥¹ï8ÜÔ¬ÉÃ1
 H
-java:S1168+"+Return an empty collection instead of null.(¥¹ï8³¸œªÃ1
-O
-java:S1068"2Remove this unused "sessionFactory" private field.(´à¢ö8Ë­ŸªÃ1
+java:S1168:"+Return an empty collection instead of null.(¥¹ï8ßÔ¬ÉÃ1

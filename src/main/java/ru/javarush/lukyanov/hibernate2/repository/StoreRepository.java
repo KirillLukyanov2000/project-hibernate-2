@@ -4,7 +4,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import ru.javarush.lukyanov.hibernate2.entity.Store;
-import ru.javarush.lukyanov.hibernate2.service.SessionFactoryProvider;
+import ru.javarush.lukyanov.hibernate2.service.util.SessionFactoryProvider;
 
 import java.util.List;
 import java.util.Optional;
@@ -48,7 +48,7 @@ public class StoreRepository implements Repository<Store> {
     @Override
     public List<Store> getItems(int offset, int count) {
         try (Session session = sessionFactory.openSession()) {
-            Query <Store> query = session.createQuery("from Store", Store.class);
+            Query<Store> query = session.createQuery("from Store", Store.class);
             query.setFirstResult(offset);
             query.setMaxResults(count);
             return query.getResultList();

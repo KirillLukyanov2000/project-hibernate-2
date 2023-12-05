@@ -2,18 +2,19 @@ package ru.javarush.lukyanov.hibernate2.repository;
 
 import org.hibernate.SessionFactory;
 import ru.javarush.lukyanov.hibernate2.entity.Staff;
-import ru.javarush.lukyanov.hibernate2.service.SessionFactoryProvider;
+import ru.javarush.lukyanov.hibernate2.service.util.SessionFactoryProvider;
 
 import java.util.List;
 import java.util.Optional;
 
-public class StaffRepository implements Repository <Staff> {
+public class StaffRepository implements Repository<Staff> {
 
     private final SessionFactory sessionFactory;
 
     public StaffRepository() {
         sessionFactory = SessionFactoryProvider.getSessionFactory();
     }
+
     @Override
     public List<Staff> getAll(int pageNumber, int pageSize) {
         return null;

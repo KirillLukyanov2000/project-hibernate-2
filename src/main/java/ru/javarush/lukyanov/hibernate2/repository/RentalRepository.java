@@ -1,18 +1,23 @@
 package ru.javarush.lukyanov.hibernate2.repository;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 import ru.javarush.lukyanov.hibernate2.entity.Rental;
-import ru.javarush.lukyanov.hibernate2.service.SessionFactoryProvider;
+import ru.javarush.lukyanov.hibernate2.service.util.SessionFactoryProvider;
+
 
 import java.util.List;
 import java.util.Optional;
 
-public class RentalRepository implements Repository <Rental> {
+public class RentalRepository implements Repository<Rental> {
     private final SessionFactory sessionFactory;
 
     public RentalRepository() {
         sessionFactory = SessionFactoryProvider.getSessionFactory();
     }
+
     @Override
     public List<Rental> getAll(int pageNumber, int pageSize) {
         return null;
@@ -24,13 +29,23 @@ public class RentalRepository implements Repository <Rental> {
     }
 
     @Override
-    public Rental save(Rental entity) {
-        return null;
+    public Rental save(Rental rental) {
+        try (Session session = sessionFactory.openSession()) {
+            Transaction transaction = session.beginTransaction();
+            session.persist(rental);
+            transaction.commit();
+            return session.get(Rental.class, rental.getRentalId());
+        }
     }
 
     @Override
-    public Rental update(Rental entity) {
-        return null;
+    public Rental update(Rental rental) {
+        try (Session session = sessionFactory.openSession()) {
+            Transaction transaction = session.beginTransaction();
+            Rental mergedRental = (Rental) session.merge(rental);
+            transaction.commit();
+            return mergedRental;
+        }
     }
 
     @Override
@@ -46,5 +61,14 @@ public class RentalRepository implements Repository <Rental> {
     @Override
     public void delete(Rental entity) {
 
+    }
+
+    public Rental getFirstUnreturnedRental() {
+        try (Session session = sessionFactory.openSession()) {
+            Query<Rental> query = session.createQuery("select r from Rental r where r.returnDate is null", Rental.class);
+            query.setMaxResults(1);
+            Rental rental = query.getSingleResult();
+            return rental;
+        }
     }
 }

@@ -8,7 +8,7 @@ import org.hibernate.annotations.Type;
 public class FilmText {
     @Id
     @Column(name = "film_id")
-    private Short filmId;
+    private Short filmTextId;
     @Column(name = "title")
     private String title;
     @Column(name = "description", columnDefinition = "text")
@@ -29,12 +29,12 @@ public class FilmText {
     public FilmText() {
     }
 
-    public Short getFilmId() {
-        return filmId;
+    public Short getFilmTextId() {
+        return filmTextId;
     }
 
-    public void setFilmId(Short filmId) {
-        this.filmId = filmId;
+    public void setFilmTextId(Short filmTextId) {
+        this.filmTextId = filmTextId;
     }
 
     public String getTitle() {

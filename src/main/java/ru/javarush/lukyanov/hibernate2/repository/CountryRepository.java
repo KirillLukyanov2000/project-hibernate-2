@@ -2,7 +2,7 @@ package ru.javarush.lukyanov.hibernate2.repository;
 
 import org.hibernate.SessionFactory;
 import ru.javarush.lukyanov.hibernate2.entity.Country;
-import ru.javarush.lukyanov.hibernate2.service.SessionFactoryProvider;
+import ru.javarush.lukyanov.hibernate2.service.util.SessionFactoryProvider;
 
 import java.util.List;
 import java.util.Optional;

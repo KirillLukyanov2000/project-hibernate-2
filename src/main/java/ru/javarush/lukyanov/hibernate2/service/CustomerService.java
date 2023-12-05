@@ -1,19 +1,15 @@
 package ru.javarush.lukyanov.hibernate2.service;
 
 import ru.javarush.lukyanov.hibernate2.entity.*;
-import ru.javarush.lukyanov.hibernate2.repository.ActorRepository;
 import ru.javarush.lukyanov.hibernate2.repository.CustomerRepository;
-
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Optional;
+import ru.javarush.lukyanov.hibernate2.service.util.RepositoryProvider;
 
 public class CustomerService {
     private Customer customer;
     private CustomerRepository customerRepository;
     private RepositoryProvider repositoryProvider;
 
-    public Customer createNewRandomCustomer() {
+    public Customer addNewRandomCustomer() {
         repositoryProvider = new RepositoryProvider();
         customerRepository = repositoryProvider.getCustomerRepository();
         Store store = repositoryProvider.getStoreRepository().getItems(0, 1).get(0);
@@ -34,7 +30,5 @@ public class CustomerService {
         return customerRepository.save(customer);
 
     }
-
-
 
 }

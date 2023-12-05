@@ -1,20 +1,23 @@
 package ru.javarush.lukyanov.hibernate2.repository;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import ru.javarush.lukyanov.hibernate2.entity.Film;
-import ru.javarush.lukyanov.hibernate2.service.SessionFactoryProvider;
+import org.hibernate.Transaction;
+import ru.javarush.lukyanov.hibernate2.entity.FilmText;
+import ru.javarush.lukyanov.hibernate2.service.util.SessionFactoryProvider;
 
 import java.util.List;
 import java.util.Optional;
 
-public class FilmTextRepository implements Repository <Film>{
+public class FilmTextRepository implements Repository<FilmText> {
     private final SessionFactory sessionFactory;
 
     public FilmTextRepository() {
         sessionFactory = SessionFactoryProvider.getSessionFactory();
     }
+
     @Override
-    public List<Film> getAll(int pageNumber, int pageSize) {
+    public List<FilmText> getAll(int pageNumber, int pageSize) {
         return null;
     }
 
@@ -24,27 +27,32 @@ public class FilmTextRepository implements Repository <Film>{
     }
 
     @Override
-    public Film save(Film entity) {
+    public FilmText save(FilmText filmText) {
+        try (Session session = sessionFactory.openSession()) {
+            Transaction transaction = session.beginTransaction();
+            session.persist(filmText);
+            transaction.commit();
+            return session.get(FilmText.class, filmText.getFilmTextId());
+        }
+    }
+
+    @Override
+    public FilmText update(FilmText entity) {
         return null;
     }
 
     @Override
-    public Film update(Film entity) {
-        return null;
-    }
-
-    @Override
-    public Optional<Film> get(long id) {
+    public Optional<FilmText> get(long id) {
         return Optional.empty();
     }
 
     @Override
-    public List<Film> getItems(int offset, int count) {
+    public List<FilmText> getItems(int offset, int count) {
         return null;
     }
 
     @Override
-    public void delete(Film entity) {
+    public void delete(FilmText entity) {
 
     }
 }

@@ -1,18 +1,21 @@
 package ru.javarush.lukyanov.hibernate2.repository;
 
+import org.hibernate.Query;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import ru.javarush.lukyanov.hibernate2.entity.Category;
-import ru.javarush.lukyanov.hibernate2.service.SessionFactoryProvider;
+import ru.javarush.lukyanov.hibernate2.service.util.SessionFactoryProvider;
 
 import java.util.List;
 import java.util.Optional;
 
-public class CategoryRepository implements Repository <Category> {
+public class CategoryRepository implements Repository<Category> {
     private final SessionFactory sessionFactory;
 
     public CategoryRepository() {
         sessionFactory = SessionFactoryProvider.getSessionFactory();
     }
+
     @Override
     public List<Category> getAll(int pageNumber, int pageSize) {
         return null;
@@ -40,7 +43,12 @@ public class CategoryRepository implements Repository <Category> {
 
     @Override
     public List<Category> getItems(int offset, int count) {
-        return null;
+        try (Session session = sessionFactory.openSession()) {
+            Query<Category> query = session.createQuery("from Category", Category.class);
+            query.setFirstResult(offset);
+            query.setMaxResults(count);
+            return query.getResultList();
+        }
     }
 
     @Override

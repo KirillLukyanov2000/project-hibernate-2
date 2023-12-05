@@ -3,7 +3,6 @@ package ru.javarush.lukyanov.hibernate2.entity;
 import jakarta.persistence.*;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -83,7 +82,7 @@ public class Rental {
         this.returnDate = returnDate;
     }
 
-     public LocalDateTime getLastUpdate() {
+    public LocalDateTime getLastUpdate() {
         return lastUpdate;
     }
 
